@@ -84,7 +84,7 @@ class APILoggerMiddleware:
                 if request.get('content-type') in ('application/json', 'application/vnd.api+json',):
                     request_data = json.loads(request.body) if request.body else ''
                 else:
-                    request_data = request.data
+                    request_data = json.dumps(request.data) if request.data else ''
             except:
                 pass
 
