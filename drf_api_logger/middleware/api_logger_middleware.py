@@ -80,7 +80,10 @@ class APILoggerMiddleware:
             start_time = time.time()
             request_data = ''
             try:
-                request_data = json.loads(request.body) if request.body else ''
+                if response.get('content-type') in ('application/json', 'application/vnd.api+json',):
+                    request_data = json.loads(request.body) if request.body else ''
+                else:
+                    request_data = request.data
             except:
                 pass
 
