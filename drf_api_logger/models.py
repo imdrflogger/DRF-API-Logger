@@ -31,7 +31,7 @@ if database_log_enabled():
         execution_time = models.DecimalField(decimal_places=5, max_digits=8,
                                              help_text='Server execution time (Not complete response time.)')
         created_at = models.DateTimeField()
-        updated_at = models.dateTimeField()
+        updated_at = models.DateTimeField()
 
         def __str__(self):
             return self.api
