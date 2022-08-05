@@ -1,5 +1,5 @@
 from django.db import models
-
+import django
 from drf_api_logger.utils import database_log_enabled
 
 
@@ -30,8 +30,8 @@ if database_log_enabled():
         status_code = models.PositiveSmallIntegerField(help_text='Response status code', db_index=True)
         execution_time = models.DecimalField(decimal_places=5, max_digits=8,
                                              help_text='Server execution time (Not complete response time.)')
-        created_at = models.DateTimeField(auto_now_add=True, blank=True)
-        updated_at = models.DateTimeField(auto_now_add=True, blank=True)
+        created_at = models.DateTimeField(blank=True,default=django.utils.timezone.now)
+        updated_at = models.DateTimeField(blank=True,default=django.utils.timezone.now)
 
         def __str__(self):
             return self.api
