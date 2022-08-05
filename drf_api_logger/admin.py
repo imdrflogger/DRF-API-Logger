@@ -99,7 +99,7 @@ if database_log_enabled():
 
         list_per_page = 20
         list_display = ('id', 'api',  'status_code', 'execution_time', 'added_on_time',)
-        list_filter = ( ('created_at', DateRangeFilter), ('updated_at', DateTimeRangeFilter), 'added_on', 'status_code', 'method',)
+        list_filter = ( ('created_at', DateRangeFilter), ('updated_at', DateRangeFilter), 'added_on', 'status_code', 'method',)
         search_fields = ('body', 'response', 'headers', 'api',)
         readonly_fields = (
             'execution_time', 'client_ip_address', 'api',
