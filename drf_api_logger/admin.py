@@ -6,6 +6,8 @@ from django.db.models import Count
 from django.http import HttpResponse
 
 from drf_api_logger.utils import database_log_enabled
+from django.contrib.admin import DateFieldListFilter
+
 
 if database_log_enabled():
     from drf_api_logger.models import APILogsModel
@@ -97,7 +99,7 @@ if database_log_enabled():
 
         list_per_page = 20
         list_display = ('id', 'api', 'method', 'status_code', 'execution_time', 'added_on_time',)
-        list_filter = ('added_on', 'status_code', 'method',)
+        list_filter = ( ('added_on', DateFieldListFilter),'added_on', 'status_code', 'method',)
         search_fields = ('body', 'response', 'headers', 'api',)
         readonly_fields = (
             'execution_time', 'client_ip_address', 'api',
