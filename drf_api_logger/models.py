@@ -30,8 +30,8 @@ if database_log_enabled():
         status_code = models.PositiveSmallIntegerField(help_text='Response status code', db_index=True)
         execution_time = models.DecimalField(decimal_places=5, max_digits=8,
                                              help_text='Server execution time (Not complete response time.)')
-        created_at = models.TextField()
-        updated_at = models.TextField()
+        created_at = models.TextField(null=True, blank=True)
+        updated_at = models.TextField(null=True, blank=True)
 
         def __str__(self):
             return self.api
