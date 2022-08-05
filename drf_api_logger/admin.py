@@ -106,6 +106,14 @@ if database_log_enabled():
             'headers', 'body', 'method', 'response', 'status_code', 'added_on_time',
         )
         exclude = ('added_on',)
+        
+        def get_rangefilter_created_at_default(self, request):
+            return (datetime.date.today, datetime.date.today)
+
+    # If you would like to change a title range filter
+    # method pattern "get_rangefilter_{field_name}_title"
+        def get_rangefilter_created_at_title(self, request, field_path):
+            return 'custom title'
 
         change_list_template = 'charts_change_list.html'
         change_form_template = 'change_form.html'
