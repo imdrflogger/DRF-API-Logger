@@ -13,9 +13,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='apilogsmodel',
             name='api',
-            fields=[(models.CharField(help_text='API URL', max_length=1024)),
-                   ('created_at', models.DateTimeField()),
-                   ('updated_at', models.DateTimeField())
-                   ]
+            field=models.CharField(help_text='API URL', max_length=1024)         
         ),
     ]
